@@ -42,13 +42,30 @@ Dernière mise à jour : voir historique Git.
 - [x] Panel `MainContent` (reste de l'espace, fond `#1B1C1E`).
 - [x] Panel `CaseWindow` avec `TitleBar` ("CASE #0017 — Disparition").
 - [x] `ContentArea` avec `ColumnLeft` (Location/Status/Agent) et `ColumnRight` (Attached Files) via Horizontal + Vertical Layout Groups.
-- [ ] Corriger le débordement vertical de ColumnLeft/ColumnRight hors de ContentArea/CaseWindow (en cours).
+- [x] Débordement vertical de ColumnLeft/ColumnRight corrigé (Control Child Size + Child Force Expand sur les Layout Groups).
+
+### Peaufinage UI
+- [x] 7 icônes téléchargées (Tabler/Feather), renommées et importées dans `_Sprites`.
+- [x] Icônes assignées sur les 7 boutons de la Sidebar (Image + Horizontal Layout Group par bouton).
+- [x] États hover/pressed configurés sur les 7 boutons (Button > Transition > Color Tint).
+- [x] Bouton de fermeture (×) sur la TitleBar de CaseWindow.
+- [x] Test responsive (plusieurs résolutions en Play).
+- [ ] État actif dynamique des boutons Sidebar — reporté volontairement à l'étape du système de navigation (après CaseManager).
 
 ---
 
 ## En cours / prochaine étape immédiate
 
-- [ ] Rien en cours actuellement — prêt à démarrer la suite (voir ci-dessous).
+- [ ] Créer le visualiseur d'image avec zoom (Image Viewer).
+- [ ] Créer le système de recherche / base de données fictive.
+- [ ] Relier le tout en un premier puzzle jouable de bout en bout (objectif MVP).
+
+### Système de données (fait)
+- [x] Classe `CaseData` créée (structure sérialisable : caseId, title, location, status, assignedAgent, attachedFiles, evidence, requiredDiscoveries).
+- [x] `CaseManager` créé (singleton, charge le JSON via `Resources.Load`, chargement en `Awake()` pour garantir l'ordre d'exécution avant les autres scripts).
+- [x] Affaire de test `case_0017.json` créée dans `Assets/_Data/Resources/`.
+- [x] `CaseWindowUI` créé et branché sur `CaseWindow` : affiche dynamiquement titre, location, status, agent, et génère la liste de fichiers via un prefab `FileEntry` instancié depuis les données du JSON (plus de texte codé en dur).
+- [x] Testé en Play : les données du JSON s'affichent correctement dans l'interface.
 
 ---
 
@@ -57,8 +74,8 @@ Dernière mise à jour : voir historique Git.
 Rappel de la feuille de route recommandée (Section 46 du GDD) :
 
 1. ~~Définir l'identité visuelle de l'interface.~~ → **fait** (maquette de référence validée)
-2. ~~Créer le prototype Unity du bureau.~~ → **en cours** (Canvas + fond fait, reste : icônes/fenêtres cliquables)
-3. Créer la base de données fictive.
+2. ~~Créer le prototype Unity du bureau.~~ → **fait** (Sidebar, CaseWindow, icônes, hover states, responsive)
+3. ~~Créer la base de données fictive.~~ → **partiellement fait** (une affaire test pilotée par JSON ; reste à créer une vraie base de données de recherche, distincte des affaires)
 4. Créer le système de recherche.
 5. Créer le visualiseur d'images.
 6. Créer une première affaire complète.

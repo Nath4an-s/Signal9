@@ -1,0 +1,15 @@
+{
+  "caseId": "CASE_0017",
+  "title": "Disparition",
+  "location": "Rennes",
+  "status": "ACTIVE",
+  "assignedAgent": "M. Laurent",
+  "attachedFiles": [
+    "CCTV_01.mp4",
+    "HOUSE_PHOTO.jpg",
+    "VEHICLE.jpg",
+    "POLICE_REPORT.pdf"
+  ],
+  "evidence": [],
+  "requiredDiscoveries": []
+}

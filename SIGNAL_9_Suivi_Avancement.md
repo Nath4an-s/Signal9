@@ -32,9 +32,17 @@ Dernière mise à jour : voir historique Git.
 
 ### Premier écran (bureau)
 - [x] Canvas principal créé (Screen Space - Overlay, Canvas Scaler en "Scale With Screen Size", résolution de référence 1920x1080).
-- [x] Panel `Background` en plein écran (couleur de fond temporaire).
+- [x] Panel `Background` en plein écran, couleur définitive `#1B1C1E`.
 - [x] `GameManager.cs` créé dans `_Scripts/Managers`, attaché à un GameObject vide dans la scène `Desktop` (squelette vide pour l'instant, sert de point d'ancrage).
 - [x] Test en Play : l'écran de fond s'affiche correctement.
+- [x] Panel `Sidebar` (180px, fond `#141516`, bordure droite `#2A2B2D`, anchor left-stretch).
+- [x] Label `Label_Applications` (TextMeshPro).
+- [x] 7 boutons d'application dans Sidebar (Dossiers, Base de données, Analyse photo, Analyse vidéo, Analyse audio, Téléphone, Graphe) via Vertical Layout Group.
+- [x] Style actif appliqué sur `Btn_Dossiers` (fond `#242527`, bordure gauche bleue `#4A7FB5`, texte clair).
+- [x] Panel `MainContent` (reste de l'espace, fond `#1B1C1E`).
+- [x] Panel `CaseWindow` avec `TitleBar` ("CASE #0017 — Disparition").
+- [x] `ContentArea` avec `ColumnLeft` (Location/Status/Agent) et `ColumnRight` (Attached Files) via Horizontal + Vertical Layout Groups.
+- [ ] Corriger le débordement vertical de ColumnLeft/ColumnRight hors de ContentArea/CaseWindow (en cours).
 
 ---
 

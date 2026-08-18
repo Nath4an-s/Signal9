@@ -69,3 +69,6 @@ crashlytics-build.properties
 # Standard OS/editor
 .DS_Store
 Thumbs.db
+
+.plastic/
+ignore.conf

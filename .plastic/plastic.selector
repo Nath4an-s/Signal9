@@ -1,4 +1,0 @@
-repository "Signal9/Signal9@20066363556466@cloud"
-  path "/"
-    br "/main"
-    co "/main"

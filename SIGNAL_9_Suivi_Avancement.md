@@ -56,8 +56,17 @@ Dernière mise à jour : voir historique Git.
 
 ## En cours / prochaine étape immédiate
 
-- [ ] Relier le tout en un premier puzzle jouable de bout en bout (objectif MVP) : ouvrir la photo depuis CaseWindow → zoomer → lire la plaque → ouvrir la base de données → rechercher → obtenir le propriétaire.
-- [ ] Brancher les clics sur les boutons Sidebar et les fichiers de CaseWindow pour ouvrir/fermer les fenêtres (actuellement les fenêtres sont testées en restant actives en dur).
+- [ ] Écrire une première affaire complète et jouable (au-delà du test technique CASE_0017) — cf. étape 6 du plan.
+- [ ] Tester la boucle d'enquête avec de vrais utilisateurs — cf. étape 7 du plan.
+
+### Système de fenêtres (fait)
+- [x] Câblage des clics : `Btn_AnalysePhoto` / `Btn_BaseDeDonnees` ouvrent leurs fenêtres respectives depuis la Sidebar.
+- [x] Clic sur un fichier `.jpg` dans `CaseWindow` (`FileEntryUI`) ouvre `ImageViewerController` avec l'image associée (mapping manuel temporaire).
+- [x] Boutons de fermeture (×) fonctionnels sur `ImageWindowFrame` et `DatabaseWindowFrame`.
+- [x] Parcours MVP testé de bout en bout : ouvrir photo → zoomer → lire plaque → ouvrir base de données → rechercher → obtenir le propriétaire.
+- [x] **Restructuration en vraies fenêtres de bureau** : suppression des anciens overlays plein écran modaux (`ImageViewerWindow`, `DatabaseWindow`), toutes les fenêtres (`CaseWindow`, `ImageWindowFrame`, `DatabaseWindowFrame`) regroupées dans une couche commune `WindowsLayer`, par-dessus `Sidebar`/`MainContent` sans les bloquer.
+- [x] `WindowDragHandler.cs` créé et attaché aux 3 barres de titre : déplacement au clic-glisser, passage au premier plan au clic (`SetAsLastSibling`).
+- [x] Plusieurs fenêtres peuvent maintenant être ouvertes simultanément, déplacées indépendamment, sans bloquer les clics vers Sidebar/MainContent en arrière-plan — comportement de bureau multi-fenêtres validé en Play.
 
 ### Système de base de données (fait)
 - [x] `DatabaseRecord` / `DatabaseRecordList` créées (structure sérialisable : plate, ownerName, ownerAddress, vehicleModel, notes).
@@ -94,7 +103,7 @@ Rappel de la feuille de route recommandée (Section 46 du GDD) :
 3. ~~Créer la base de données fictive.~~ → **partiellement fait** (une affaire test pilotée par JSON ; reste à créer une vraie base de données de recherche, distincte des affaires)
 4. ~~Créer le système de recherche.~~ → **fait** (recherche par plaque, tolérante au format)
 5. ~~Créer le visualiseur d'images.~~ → **fait** (zoom + pan avec clamp)
-6. Créer une première affaire complète.
+6. ~~Créer une première affaire complète.~~ → **partiellement fait** (CASE_0017 fonctionnel techniquement, mais c'est un cas de test — reste à écrire une vraie affaire avec un scénario, cf. Section 3-4 du GDD)
 7. Tester la boucle d'enquête avec de vrais utilisateurs.
 8. Créer le système de déblocage.
 9. Créer le graphe des connexions.

@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using System.Text;
 
 public class CaseWindowUI : MonoBehaviour
 {
@@ -15,6 +14,10 @@ public class CaseWindowUI : MonoBehaviour
     [Header("Column right")]
     public Transform filesContainer;
     public GameObject fileEntryPrefab;
+
+    [Header("Image mapping (temporary manual mapping)")]
+    public string testImageFileName = "HOUSE_PHOTO.jpg";
+    public Sprite testImageSprite;
 
     void Start()
     {
@@ -42,10 +45,18 @@ public class CaseWindowUI : MonoBehaviour
         foreach (string fileName in data.attachedFiles)
         {
             GameObject entry = Instantiate(fileEntryPrefab, filesContainer);
+
             TMP_Text entryText = entry.GetComponentInChildren<TMP_Text>();
             if (entryText != null)
             {
                 entryText.text = fileName;
+            }
+
+            FileEntryUI entryUI = entry.GetComponent<FileEntryUI>();
+            if (entryUI != null)
+            {
+                Sprite matchingSprite = (fileName == testImageFileName) ? testImageSprite : null;
+                entryUI.Setup(fileName, matchingSprite);
             }
         }
     }

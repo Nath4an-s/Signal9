@@ -56,9 +56,25 @@ Dernière mise à jour : voir historique Git.
 
 ## En cours / prochaine étape immédiate
 
-- [ ] Créer le visualiseur d'image avec zoom (Image Viewer) — en cours.
-- [ ] Créer le système de recherche / base de données fictive.
-- [ ] Relier le tout en un premier puzzle jouable de bout en bout (objectif MVP).
+- [ ] Relier le tout en un premier puzzle jouable de bout en bout (objectif MVP) : ouvrir la photo depuis CaseWindow → zoomer → lire la plaque → ouvrir la base de données → rechercher → obtenir le propriétaire.
+- [ ] Brancher les clics sur les boutons Sidebar et les fichiers de CaseWindow pour ouvrir/fermer les fenêtres (actuellement les fenêtres sont testées en restant actives en dur).
+
+### Système de base de données (fait)
+- [x] `DatabaseRecord` / `DatabaseRecordList` créées (structure sérialisable : plate, ownerName, ownerAddress, vehicleModel, notes).
+- [x] `DatabaseManager` créé (singleton, charge `database_plates.json` via `Resources.Load` en `Awake()`).
+- [x] Recherche tolérante au format : normalisation des plaques (suppression tirets/espaces, mise en majuscules) des deux côtés de la comparaison — `61LE335` trouve `61-LE-335`.
+- [x] Fichier `database_plates.json` de test créé dans `Assets/_Data/Resources/` (2 entrées).
+- [x] `DatabaseWindow` créée (même style que CaseWindow/ImageViewer) avec champ de recherche (Input Field TMP) et bouton Rechercher.
+- [x] `DatabaseWindowUI` branché : affiche les résultats (`ResultGroup`) ou un message "Aucun résultat." (`Result_NotFound`) selon la recherche.
+- [x] Testé en Play : recherche exacte et recherche avec/sans tirets fonctionnent, cas "aucun résultat" fonctionne.
+
+### Image Viewer (fait)
+- [x] `ImageViewerWindow` créée (overlay semi-transparent + `ImageWindowFrame` centrée, style cohérent avec `CaseWindow`).
+- [x] `ImageTitleBar` avec titre du fichier et bouton de fermeture (×).
+- [x] `ViewportMask` (Mask + Image) pour clipper l'image affichée aux bords de la fenêtre.
+- [x] `DisplayedImage` affichée avec `Preserve Aspect`.
+- [x] Script `ImageZoomPan.cs` : zoom à la molette (`OnScroll`) et déplacement au clic-glisser (`OnDrag`), avec clamp de position pour empêcher l'image de sortir du champ de vision quel que soit le niveau de zoom.
+- [x] Testé en Play : zoom fluide depuis le centre, pan limité aux bords, aucun vide visible.
 
 ### Système de données (fait)
 - [x] Classe `CaseData` créée (structure sérialisable : caseId, title, location, status, assignedAgent, attachedFiles, evidence, requiredDiscoveries).
@@ -76,8 +92,8 @@ Rappel de la feuille de route recommandée (Section 46 du GDD) :
 1. ~~Définir l'identité visuelle de l'interface.~~ → **fait** (maquette de référence validée)
 2. ~~Créer le prototype Unity du bureau.~~ → **fait** (Sidebar, CaseWindow, icônes, hover states, responsive)
 3. ~~Créer la base de données fictive.~~ → **partiellement fait** (une affaire test pilotée par JSON ; reste à créer une vraie base de données de recherche, distincte des affaires)
-4. Créer le système de recherche.
-5. Créer le visualiseur d'images.
+4. ~~Créer le système de recherche.~~ → **fait** (recherche par plaque, tolérante au format)
+5. ~~Créer le visualiseur d'images.~~ → **fait** (zoom + pan avec clamp)
 6. Créer une première affaire complète.
 7. Tester la boucle d'enquête avec de vrais utilisateurs.
 8. Créer le système de déblocage.

@@ -1,0 +1,18 @@
+{
+  "records": [
+    {
+      "plate": "61-LE-335",
+      "ownerName": "Julien Vasseur",
+      "ownerAddress": "14 rue des Lilas, Rennes",
+      "vehicleModel": "Renault Clio, gris",
+      "notes": "Aucun antécédent."
+    },
+    {
+      "plate": "EF-456-GH",
+      "ownerName": "Marion Delcourt",
+      "ownerAddress": "3 allée du Parc, Rennes",
+      "vehicleModel": "Peugeot 208, bleu",
+      "notes": "Signalée en 2021 pour excès de vitesse."
+    }
+  ]
+}

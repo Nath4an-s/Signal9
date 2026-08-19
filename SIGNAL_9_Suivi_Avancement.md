@@ -56,8 +56,11 @@ Dernière mise à jour : voir historique Git.
 
 ## En cours / prochaine étape immédiate
 
-- [ ] Écrire une première affaire complète et jouable (au-delà du test technique CASE_0017) — cf. étape 6 du plan.
-- [ ] Tester la boucle d'enquête avec de vrais utilisateurs — cf. étape 7 du plan.
+- [ ] Mettre à jour `case_0017.json` avec le vrai contenu narratif ("La maison vide" — cf. `SIGNAL_9_Affaire_MaisonVide.md`) : `title`, `attachedFiles` (ajout de `SALON_PHOTO.jpg`, retrait de `CCTV_01.mp4`), `evidence`, `requiredDiscoveries`.
+- [ ] Produire les assets manquants : `SALON_PHOTO.jpg` (avec le reflet caché), `POLICE_REPORT.pdf` (ou fenêtre texte), et ajouter `SALON_PHOTO.jpg` au mapping manuel fichier→sprite (`imageMappings` sur `CaseWindowUI`).
+- [ ] Une fois le contenu narratif en place : tester la boucle d'enquête complète avec de vrais utilisateurs — cf. étape 7 du plan.
+
+> Le système technique qui supportait ces étapes (fenêtre d'analyse faciale, hotspot conditionnel, validation du case via `DiscoveryManager`) est maintenant fait — voir sections ci-dessous. Il ne reste que le contenu narratif et les assets à produire pour boucler l'Affaire #1.
 
 ### Système de fenêtres (fait)
 - [x] Câblage des clics : `Btn_AnalysePhoto` / `Btn_BaseDeDonnees` ouvrent leurs fenêtres respectives depuis la Sidebar.
@@ -84,6 +87,27 @@ Dernière mise à jour : voir historique Git.
 - [x] `DisplayedImage` affichée avec `Preserve Aspect`.
 - [x] Script `ImageZoomPan.cs` : zoom à la molette (`OnScroll`) et déplacement au clic-glisser (`OnDrag`), avec clamp de position pour empêcher l'image de sortir du champ de vision quel que soit le niveau de zoom.
 - [x] Testé en Play : zoom fluide depuis le centre, pan limité aux bords, aucun vide visible.
+- [x] `ImageViewerController` expose `CurrentFileName` et notifie les `PhotoHotspot` enfants à chaque ouverture d'image (`RefreshHotspots()`).
+
+### Système d'analyse faciale (fait)
+- [x] `FaceRecord.cs` / `FaceRecordList` créées (structure sérialisable : faceId, identityName, role, matchPercent, notes).
+- [x] `FaceDatabaseManager` créé (singleton, charge `face_database.json` via `Resources.Load` en `Awake()`).
+- [x] `face_database.json` de test créé dans `Assets/_Data/Resources/` (entrée `reflet_salon` → M. LAURENT, 97.8%).
+- [x] `PhotoHotspot.cs` : bouton invisible positionné sur `SALON_PHOTO.jpg`, avec champ `requiredFileName` — n'est cliquable (`interactable = true`) que lorsque l'image actuellement affichée dans l'Image Viewer correspond au fichier attendu.
+- [x] `FaceAnalysisWindowUI.cs` : fenêtre dédiée (`FaceAnalysisWindowFrame`), inactive par défaut, activée au clic sur le hotspot (`SetActive(true)` + `SetAsLastSibling()`, cohérent avec le comportement multi-fenêtres existant).
+- [x] Bug corrigé : `FaceAnalysisWindowFrame` portait encore un composant `DatabaseWindowUI` résiduel (copier-coller depuis `DatabaseWindowFrame`) — retiré.
+- [x] Bug corrigé : le champ `Window Root` de `FaceAnalysisWindowUI` pointait sur `FaceAnalysisWindowRoot` (le porteur du script) au lieu de `FaceAnalysisWindowFrame` (le panel visuel) — la fenêtre ne s'affichait pas malgré une exécution correcte du script.
+- [x] Animation d'analyse (3s, remplace l'ancien texte statique "ANALYSE EN COURS...") : barre de progression (`ScanBarFill`, Image Filled/Horizontal), curseur lumineux qui suit la progression (`ScanBarHead`), compteur de pourcentage (`PercentText`), texte de statut qui change de phrase par palier (`StatusText`).
+- [x] Sprite `white_pixel.png` créé et ajouté à `_Sprites` : carré blanc plat sans coins arrondis ni dégradé, utilisé sur `ScanBarTrack`/`ScanBarFill`/`ScanBarHead` (le sprite `UISprite` par défaut d'Unity avait des coins arrondis qui s'étiraient de façon visible en mode Filled sur une barre fine).
+- [x] Résultat affiché sous forme de bloc texte façon terminal (`MATCH: 97.8%` / `IDENTITY: M. LAURENT` / notes).
+
+### Système de découvertes / validation du case (fait)
+- [x] `DiscoveryManager.cs` créé (singleton, attaché au GameObject `GameManager` aux côtés de `CaseManager`/`DatabaseManager`/`FaceDatabaseManager`).
+- [x] `DatabaseWindowUI` : une recherche de plaque réussie appelle `DiscoveryManager.Instance.Unlock("vehicle_owner")`.
+- [x] `FaceAnalysisWindowUI` : un match facial réussi appelle `DiscoveryManager.Instance.Unlock("reflection_face")`.
+- [x] `DiscoveryManager.CheckCaseCompletion()` compare les découvertes débloquées à `CaseData.requiredDiscoveries` du case actuellement chargé (`CaseManager.Instance.CurrentCase`).
+- [x] `CaseWindowUI` : singleton `Instance` ajouté, nouvelle méthode `MarkCaseResolved()` — passe `status` à `"RÉSOLU"` et colore le texte en bleu-gris accent (`#4A7FB5`), appelée automatiquement par `DiscoveryManager` une fois toutes les `requiredDiscoveries` trouvées.
+- [x] Parcours complet testé en Play : ouvrir dossier → zoomer véhicule → lire plaque → rechercher BDD (`vehicle_owner` débloqué) → ouvrir SALON_PHOTO → cliquer le reflet → analyse 3s animée → résultat facial (`reflection_face` débloqué) → case passe à `RÉSOLU`.
 
 ### Système de données (fait)
 - [x] Classe `CaseData` créée (structure sérialisable : caseId, title, location, status, assignedAgent, attachedFiles, evidence, requiredDiscoveries).
@@ -103,9 +127,9 @@ Rappel de la feuille de route recommandée (Section 46 du GDD) :
 3. ~~Créer la base de données fictive.~~ → **partiellement fait** (une affaire test pilotée par JSON ; reste à créer une vraie base de données de recherche, distincte des affaires)
 4. ~~Créer le système de recherche.~~ → **fait** (recherche par plaque, tolérante au format)
 5. ~~Créer le visualiseur d'images.~~ → **fait** (zoom + pan avec clamp)
-6. ~~Créer une première affaire complète.~~ → **partiellement fait** (CASE_0017 fonctionnel techniquement, mais c'est un cas de test — reste à écrire une vraie affaire avec un scénario, cf. Section 3-4 du GDD)
+6. ~~Créer une première affaire complète.~~ → **partiellement fait** (CASE_0017 fonctionnel techniquement, système de découvertes/validation en place — reste le contenu narratif : `case_0017.json` mis à jour + assets, cf. Section 3-4 du GDD)
 7. Tester la boucle d'enquête avec de vrais utilisateurs.
-8. Créer le système de déblocage.
+8. ~~Créer le système de déblocage.~~ → **fait** (`DiscoveryManager`, unlocks `vehicle_owner`/`reflection_face`, résolution automatique du case)
 9. Créer le graphe des connexions.
 10. Écrire les 5 premières affaires.
 11. ~~Définir précisément la chronologie d'ARCHIVE.~~ → fait en amont (voir Section 13.1 du GDD)

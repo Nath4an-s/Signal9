@@ -11,6 +11,8 @@ public class ImageViewerController : MonoBehaviour
     public TMP_Text titleText;
     public RectTransform imageRectTransform;
 
+    public string CurrentFileName { get; private set; }
+
     void Awake()
     {
         Instance = this;
@@ -24,6 +26,8 @@ public class ImageViewerController : MonoBehaviour
             return;
         }
 
+        CurrentFileName = fileName;
+
         displayedImage.sprite = sprite;
         titleText.text = $"{fileName} — Image Viewer";
 
@@ -31,6 +35,16 @@ public class ImageViewerController : MonoBehaviour
         imageRectTransform.anchoredPosition = Vector2.zero;
 
         windowRoot.SetActive(true);
+
+        RefreshHotspots();
+    }
+
+    // Réactive/désactive chaque PhotoHotspot enfant selon l'image actuellement affichée.
+    private void RefreshHotspots()
+    {
+        var hotspots = displayedImage.GetComponentsInChildren<PhotoHotspot>(true);
+        foreach (var hotspot in hotspots)
+            hotspot.Refresh(CurrentFileName);
     }
 
     public void Close()

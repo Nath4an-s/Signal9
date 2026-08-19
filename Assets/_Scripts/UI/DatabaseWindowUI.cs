@@ -37,6 +37,8 @@ public class DatabaseWindowUI : MonoBehaviour
         resultAddress.text = $"Adresse : {result.ownerAddress}";
         resultVehicle.text = $"Véhicule : {result.vehicleModel}";
         resultNotes.text = $"Notes : {result.notes}";
+
+        DiscoveryManager.Instance?.Unlock("vehicle_owner");
     }
 
     void ClearResults()

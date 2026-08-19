@@ -1,15 +1,22 @@
 {
   "caseId": "CASE_0017",
-  "title": "Disparition",
+  "title": "La maison vide",
   "location": "Rennes",
   "status": "ACTIVE",
   "assignedAgent": "M. Laurent",
   "attachedFiles": [
-    "CCTV_01.mp4",
-    "HOUSE_PHOTO.jpg",
-    "VEHICLE.jpg",
+    "HOUSE_PHOTO.png",
+    "VEHICLE.png",
+    "SALON_PHOTO.png",
     "POLICE_REPORT.pdf"
   ],
-  "evidence": [],
-  "requiredDiscoveries": []
+  "evidence": [
+    "photo_house_01",
+    "vehicle_01",
+    "police_report_01"
+  ],
+  "requiredDiscoveries": [
+    "vehicle_owner",
+    "reflection_face"
+  ]
 }

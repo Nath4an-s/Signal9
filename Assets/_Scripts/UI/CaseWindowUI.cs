@@ -3,6 +3,10 @@ using TMPro;
 
 public class CaseWindowUI : MonoBehaviour
 {
+    public static CaseWindowUI Instance { get; private set; }
+
+    private static readonly Color ResolvedColor = new Color32(0x4A, 0x7F, 0xB5, 0xFF); // accent bleu-gris, cf. Section 32 du GDD
+
     [Header("Title bar")]
     public TMP_Text titleText;
 
@@ -15,9 +19,22 @@ public class CaseWindowUI : MonoBehaviour
     public Transform filesContainer;
     public GameObject fileEntryPrefab;
 
+    [System.Serializable]
+    public class ImageMapping
+    {
+        public string fileName;
+        public Sprite sprite;
+    }
+
     [Header("Image mapping (temporary manual mapping)")]
-    public string testImageFileName = "HOUSE_PHOTO.jpg";
-    public Sprite testImageSprite;
+    public ImageMapping[] imageMappings;
+
+    private CaseData currentCaseData;
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -27,7 +44,8 @@ public class CaseWindowUI : MonoBehaviour
             return;
         }
 
-        DisplayCase(CaseManager.Instance.CurrentCase);
+        currentCaseData = CaseManager.Instance.CurrentCase;
+        DisplayCase(currentCaseData);
     }
 
     public void DisplayCase(CaseData data)
@@ -55,10 +73,32 @@ public class CaseWindowUI : MonoBehaviour
             FileEntryUI entryUI = entry.GetComponent<FileEntryUI>();
             if (entryUI != null)
             {
-                Sprite matchingSprite = (fileName == testImageFileName) ? testImageSprite : null;
+                Sprite matchingSprite = GetSpriteForFile(fileName);
                 entryUI.Setup(fileName, matchingSprite);
             }
         }
+    }
+
+    Sprite GetSpriteForFile(string fileName)
+    {
+        foreach (ImageMapping mapping in imageMappings)
+        {
+            if (mapping.fileName == fileName)
+            {
+                return mapping.sprite;
+            }
+        }
+        return null;
+    }
+
+    // Appelé par DiscoveryManager une fois toutes les requiredDiscoveries débloquées.
+    public void MarkCaseResolved()
+    {
+        if (currentCaseData == null) return;
+
+        currentCaseData.status = "RÉSOLU";
+        statusValue.text = currentCaseData.status;
+        statusValue.color = ResolvedColor;
     }
 
     string ExtractCaseNumber(string caseId)

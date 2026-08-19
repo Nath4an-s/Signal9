@@ -1,0 +1,481 @@
+# Scene export: Desktop
+# Generated: 19/08/2026 23:58:26
+
+- Main Camera
+    [Camera]
+    [AudioListener]
+    [UniversalAdditionalCameraData]
+- Canvas
+    RectTransform: anchoredPos=(960.00, 540.00), sizeDelta=(1920.00, 1080.00), anchorMin=(0.00, 0.00), anchorMax=(0.00, 0.00)
+    [Canvas] (renderMode=ScreenSpaceOverlay)
+    [CanvasScaler]
+    [GraphicRaycaster]
+  - Background
+      RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
+      [CanvasRenderer]
+      [Image] (color=1B1C1E64, sprite=Background)
+  - Sidebar
+      RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(180.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(0.00, 1.00)
+      [CanvasRenderer]
+      [Image] (color=14151664, sprite=Background)
+      [VerticalLayoutGroup] (spacing=2, controlChildWidth=False, controlChildHeight=False)
+    - BorderRight
+        RectTransform: anchoredPos=(9.00, -40.00), sizeDelta=(1.00, 0.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+        [CanvasRenderer]
+        [Image] (color=2A2B2DFF, sprite=none)
+    - Label_Applications
+        RectTransform: anchoredPos=(8.00, -129.33), sizeDelta=(160.00, 20.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+        [CanvasRenderer]
+        [TextMeshProUGUI] (text="APPLICATIONS", fontSize=11, color=5A5C5FFF)
+    - Btn_Dossiers
+        RectTransform: anchoredPos=(88.00, -253.67), sizeDelta=(160.00, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+        [CanvasRenderer]
+        [Image] (color=242527FF, sprite=UISprite)
+        [Button] (onClick listeners=1)
+        [LayoutElement] (preferredWidth=-1, preferredHeight=32)
+        [HorizontalLayoutGroup] (spacing=8, controlChildWidth=True, controlChildHeight=True)
+      - BorderLeft
+          RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(2.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(0.00, 1.00)
+          [CanvasRenderer]
+          [Image] (color=4A7FB5FF, sprite=none)
+          [LayoutElement] (preferredWidth=-1, preferredHeight=-1)
+      - Icon
+          RectTransform: anchoredPos=(20.00, -15.00), sizeDelta=(16.00, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+          [CanvasRenderer]
+          [Image] (color=7FA8D4FF, sprite=icon_folder_0)
+          [LayoutElement] (preferredWidth=16, preferredHeight=16)
+      - Text (TMP)
+          RectTransform: anchoredPos=(61.32, -15.00), sizeDelta=(50.64, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+          [CanvasRenderer]
+          [TextMeshProUGUI] (text="Dossiers", fontSize=13, color=D8D9DBFF)
+    - Btn_BaseDeDonnees
+        RectTransform: anchoredPos=(88.00, -373.00), sizeDelta=(160.00, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+        [CanvasRenderer]
+        [Image] (color=141516FF, sprite=UISprite)
+        [Button] (onClick listeners=1)
+        [LayoutElement] (preferredWidth=-1, preferredHeight=32)
+        [HorizontalLayoutGroup] (spacing=8, controlChildWidth=True, controlChildHeight=True)
+      - Icon
+          RectTransform: anchoredPos=(20.00, -15.00), sizeDelta=(16.00, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+          [CanvasRenderer]
+          [Image] (color=A5A7AAFF, sprite=icon_database_0)
+          [LayoutElement] (preferredWidth=16, preferredHeight=16)
+      - Text (TMP)
+          RectTransform: anchoredPos=(86.72, -15.00), sizeDelta=(101.44, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+          [CanvasRenderer]
+          [TextMeshProUGUI] (text="Base de données", fontSize=13, color=A5A7AAFF)
+    - Btn_AnalysePhoto
+        RectTransform: anchoredPos=(88.00, -492.33), sizeDelta=(160.00, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+        [CanvasRenderer]
+        [Image] (color=141516FF, sprite=UISprite)
+        [Button] (onClick listeners=1)
+        [LayoutElement] (preferredWidth=-1, preferredHeight=32)
+        [HorizontalLayoutGroup] (spacing=8, controlChildWidth=True, controlChildHeight=True)
+      - Icon
+          RectTransform: anchoredPos=(20.00, -15.00), sizeDelta=(16.00, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+          [CanvasRenderer]
+          [Image] (color=A5A7AAFF, sprite=icon_photo_0)
+          [LayoutElement] (preferredWidth=16, preferredHeight=16)
+      - Text (TMP)
+          RectTransform: anchoredPos=(77.12, -15.00), sizeDelta=(82.24, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+          [CanvasRenderer]
+          [TextMeshProUGUI] (text="Analyse photo", fontSize=13, color=A5A7AAFF)
+    - Btn_AnalyseVideo
+        RectTransform: anchoredPos=(88.00, -611.67), sizeDelta=(160.00, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+        [CanvasRenderer]
+        [Image] (color=141516FF, sprite=UISprite)
+        [Button] (onClick listeners=0)
+        [LayoutElement] (preferredWidth=-1, preferredHeight=32)
+        [HorizontalLayoutGroup] (spacing=8, controlChildWidth=True, controlChildHeight=True)
+      - Icon
+          RectTransform: anchoredPos=(20.00, -15.00), sizeDelta=(16.00, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+          [CanvasRenderer]
+          [Image] (color=A5A7AAFF, sprite=icon_video_0)
+          [LayoutElement] (preferredWidth=16, preferredHeight=16)
+      - Text (TMP)
+          RectTransform: anchoredPos=(76.37, -15.00), sizeDelta=(80.73, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+          [CanvasRenderer]
+          [TextMeshProUGUI] (text="Analyse vidéo", fontSize=13, color=A5A7AAFF)
+    - Btn_AnalyseAudio
+        RectTransform: anchoredPos=(88.00, -731.00), sizeDelta=(160.00, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+        [CanvasRenderer]
+        [Image] (color=141516FF, sprite=UISprite)
+        [Button] (onClick listeners=0)
+        [LayoutElement] (preferredWidth=-1, preferredHeight=32)
+        [HorizontalLayoutGroup] (spacing=8, controlChildWidth=True, controlChildHeight=True)
+      - Icon
+          RectTransform: anchoredPos=(20.00, -15.00), sizeDelta=(16.00, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+          [CanvasRenderer]
+          [Image] (color=A5A7AAFF, sprite=icon_headphones_0)
+          [LayoutElement] (preferredWidth=16, preferredHeight=16)
+      - Text (TMP)
+          RectTransform: anchoredPos=(76.74, -15.00), sizeDelta=(81.48, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+          [CanvasRenderer]
+          [TextMeshProUGUI] (text="Analyse audio", fontSize=13, color=A5A7AAFF)
+    - Btn_Telephone
+        RectTransform: anchoredPos=(88.00, -850.33), sizeDelta=(160.00, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+        [CanvasRenderer]
+        [Image] (color=141516FF, sprite=UISprite)
+        [Button] (onClick listeners=0)
+        [LayoutElement] (preferredWidth=-1, preferredHeight=32)
+        [HorizontalLayoutGroup] (spacing=8, controlChildWidth=True, controlChildHeight=True)
+      - Icon
+          RectTransform: anchoredPos=(20.00, -15.00), sizeDelta=(16.00, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+          [CanvasRenderer]
+          [Image] (color=A5A7AAFF, sprite=icon_phone_0)
+          [LayoutElement] (preferredWidth=16, preferredHeight=16)
+      - Text (TMP)
+          RectTransform: anchoredPos=(66.77, -15.00), sizeDelta=(61.53, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+          [CanvasRenderer]
+          [TextMeshProUGUI] (text="Téléphone", fontSize=13, color=A5A7AAFF)
+    - Btn_Graphe
+        RectTransform: anchoredPos=(88.00, -969.67), sizeDelta=(160.00, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+        [CanvasRenderer]
+        [Image] (color=141516FF, sprite=UISprite)
+        [Button] (onClick listeners=0)
+        [LayoutElement] (preferredWidth=-1, preferredHeight=32)
+        [HorizontalLayoutGroup] (spacing=8, controlChildWidth=True, controlChildHeight=True)
+      - Icon
+          RectTransform: anchoredPos=(20.00, -15.00), sizeDelta=(16.00, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+          [CanvasRenderer]
+          [Image] (color=A5A7AAFF, sprite=icon_graph_0)
+          [LayoutElement] (preferredWidth=16, preferredHeight=16)
+      - Text (TMP)
+          RectTransform: anchoredPos=(57.77, -15.00), sizeDelta=(43.54, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+          [CanvasRenderer]
+          [TextMeshProUGUI] (text="Graphe", fontSize=13, color=A5A7AAFF)
+  - MainContent
+      RectTransform: anchoredPos=(90.00, 0.00), sizeDelta=(-180.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
+      [CanvasRenderer]
+      [Image] (color=1B1C1E64, sprite=Background)
+  - WindowsLayer
+      RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
+    - CaseWindow [INACTIVE]
+        RectTransform: anchoredPos=(483.00, -138.00), sizeDelta=(500.00, 220.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+        [CanvasRenderer]
+        [Image] (color=24252764, sprite=Background)
+        [CaseWindowUI]
+      - BorderTop
+          RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 2.00), anchorMin=(0.00, 1.00), anchorMax=(1.00, 1.00)
+          [CanvasRenderer]
+          [Image] (color=2F3032FF, sprite=none)
+      - BorderBottom
+          RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 2.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 0.00)
+          [CanvasRenderer]
+          [Image] (color=2F3032FF, sprite=none)
+      - BorderLeft
+          RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(2.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(0.00, 1.00)
+          [CanvasRenderer]
+          [Image] (color=2F3032FF, sprite=none)
+      - BorderRight
+          RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(2.00, 0.00), anchorMin=(1.00, 0.00), anchorMax=(1.00, 1.00)
+          [CanvasRenderer]
+          [Image] (color=2F3032FF, sprite=none)
+      - TitleBar
+          RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 32.00), anchorMin=(0.00, 1.00), anchorMax=(1.00, 1.00)
+          [CanvasRenderer]
+          [Image] (color=2A2B2D64, sprite=Background)
+          [WindowDragHandler]
+        - Text (TMP)
+            RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(200.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(0.00, 1.00)
+            [CanvasRenderer]
+            [TextMeshProUGUI] (text="CASE #0017 — Disparition", fontSize=12, color=C5C6C8FF)
+        - Btn_Close
+            RectTransform: anchoredPos=(-5.00, 0.00), sizeDelta=(24.00, 24.00), anchorMin=(1.00, 0.50), anchorMax=(1.00, 0.50)
+            [CanvasRenderer]
+            [Image] (color=2A2B2DFF, sprite=UISprite)
+            [Button] (onClick listeners=1)
+          - Text (TMP)
+              RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
+              [CanvasRenderer]
+              [TextMeshProUGUI] (text="×", fontSize=18, color=5A5C5FFF)
+      - ContentArea
+          RectTransform: anchoredPos=(0.00, -8.00), sizeDelta=(-32.00, -48.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
+          [HorizontalLayoutGroup] (spacing=20, controlChildWidth=True, controlChildHeight=True)
+        - ColumnLeft
+            RectTransform: anchoredPos=(112.00, -86.00), sizeDelta=(224.00, 134.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+            [VerticalLayoutGroup] (spacing=4, controlChildWidth=True, controlChildHeight=True)
+            [LayoutElement] (preferredWidth=200, preferredHeight=-1)
+            [ContentSizeFitter]
+          - Label_Location
+              RectTransform: anchoredPos=(112.00, -9.00), sizeDelta=(224.00, 18.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+              [CanvasRenderer]
+              [TextMeshProUGUI] (text="LOCATION", fontSize=11, color=5A5C5FFF)
+              [LayoutElement] (preferredWidth=-1, preferredHeight=18)
+          - Value_Location
+              RectTransform: anchoredPos=(112.00, -32.00), sizeDelta=(224.00, 20.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+              [CanvasRenderer]
+              [TextMeshProUGUI] (text="Rennes", fontSize=13, color=D8D9DBFF)
+              [LayoutElement] (preferredWidth=-1, preferredHeight=20)
+          - Label_Status
+              RectTransform: anchoredPos=(112.00, -55.00), sizeDelta=(224.00, 18.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+              [CanvasRenderer]
+              [TextMeshProUGUI] (text="STATUS", fontSize=11, color=5A5C5FFF)
+              [LayoutElement] (preferredWidth=-1, preferredHeight=18)
+          - Value_Status
+              RectTransform: anchoredPos=(112.00, -78.00), sizeDelta=(224.00, 20.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+              [CanvasRenderer]
+              [TextMeshProUGUI] (text="ACTIVE", fontSize=13, color=C98A4BFF)
+              [LayoutElement] (preferredWidth=-1, preferredHeight=20)
+          - Label_Agent
+              RectTransform: anchoredPos=(112.00, -101.00), sizeDelta=(224.00, 18.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+              [CanvasRenderer]
+              [TextMeshProUGUI] (text="ASSIGNED AGENT", fontSize=11, color=5A5C5FFF)
+              [LayoutElement] (preferredWidth=-1, preferredHeight=18)
+          - Value_Agent
+              RectTransform: anchoredPos=(112.00, -124.00), sizeDelta=(224.00, 20.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+              [CanvasRenderer]
+              [TextMeshProUGUI] (text="M. Laurent", fontSize=13, color=D8D9DBFF)
+              [LayoutElement] (preferredWidth=-1, preferredHeight=20)
+        - ColumnRight
+            RectTransform: anchoredPos=(356.00, -86.00), sizeDelta=(224.00, 18.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+            [VerticalLayoutGroup] (spacing=4, controlChildWidth=True, controlChildHeight=True)
+            [LayoutElement] (preferredWidth=200, preferredHeight=-1)
+            [ContentSizeFitter]
+          - Label_Files
+              RectTransform: anchoredPos=(112.00, -9.00), sizeDelta=(224.00, 18.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+              [CanvasRenderer]
+              [TextMeshProUGUI] (text="ATTACHED FILES", fontSize=11, color=5A5C5FFF)
+              [LayoutElement] (preferredWidth=-1, preferredHeight=18)
+    - DatabaseWindowFrame [INACTIVE]
+        RectTransform: anchoredPos=(-419.00, -256.00), sizeDelta=(600.00, 400.00), anchorMin=(0.50, 0.50), anchorMax=(0.50, 0.50)
+        [CanvasRenderer]
+        [Image] (color=24252764, sprite=Background)
+        [DatabaseWindowUI]
+      - BorderTop
+          RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 2.00), anchorMin=(0.00, 1.00), anchorMax=(1.00, 1.00)
+          [CanvasRenderer]
+          [Image] (color=2F3032FF, sprite=none)
+      - BorderBottom
+          RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 2.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 0.00)
+          [CanvasRenderer]
+          [Image] (color=2F3032FF, sprite=none)
+      - BorderLeft
+          RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(2.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(0.00, 1.00)
+          [CanvasRenderer]
+          [Image] (color=2F3032FF, sprite=none)
+      - BorderRight
+          RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(2.00, 0.00), anchorMin=(1.00, 0.00), anchorMax=(1.00, 1.00)
+          [CanvasRenderer]
+          [Image] (color=2F3032FF, sprite=none)
+      - DatabaseTitleBar
+          RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 32.00), anchorMin=(0.00, 1.00), anchorMax=(1.00, 1.00)
+          [CanvasRenderer]
+          [Image] (color=2A2B2D64, sprite=Background)
+          [WindowDragHandler]
+        - Label_DatabaseTitle
+            RectTransform: anchoredPos=(10.00, 0.00), sizeDelta=(400.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(0.00, 1.00)
+            [CanvasRenderer]
+            [TextMeshProUGUI] (text="Base de données — Recherche", fontSize=12, color=C5C6C8FF)
+        - Btn_CloseDatabase
+            RectTransform: anchoredPos=(-5.00, -5.00), sizeDelta=(24.00, 24.00), anchorMin=(1.00, 1.00), anchorMax=(1.00, 1.00)
+            [CanvasRenderer]
+            [Image] (color=2A2B2DFF, sprite=UISprite)
+            [Button] (onClick listeners=1)
+          - Text (TMP)
+              RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
+              [CanvasRenderer]
+              [TextMeshProUGUI] (text="×", fontSize=18, color=5A5C5FFF)
+      - SearchBar
+          RectTransform: anchoredPos=(0.00, -32.00), sizeDelta=(-24.00, 44.00), anchorMin=(0.00, 1.00), anchorMax=(1.00, 1.00)
+        - SearchInput
+            RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(160.00, 30.00), anchorMin=(0.00, 0.50), anchorMax=(0.00, 0.50)
+            [CanvasRenderer]
+            [Image] (color=1B1C1EFF, sprite=InputFieldBackground)
+            [TMP_InputField] (placeholder present=True)
+            [LayoutElement] (preferredWidth=-1, preferredHeight=-1)
+          - Text Area
+              RectTransform: anchoredPos=(0.00, -0.50), sizeDelta=(-20.00, -13.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
+              [RectMask2D]
+            - Placeholder
+                RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
+                [CanvasRenderer]
+                [TextMeshProUGUI] (text="Entrer une plaque...", fontSize=14, color=5A5C5F80)
+                [LayoutElement] (preferredWidth=-1, preferredHeight=-1)
+            - Text
+                RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
+                [CanvasRenderer]
+                [TextMeshProUGUI] (text="​", fontSize=13, color=D8D9DBFF)
+        - Btn_Search
+            RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(160.00, 30.00), anchorMin=(1.00, 0.50), anchorMax=(1.00, 0.50)
+            [CanvasRenderer]
+            [Image] (color=4A7FB5FF, sprite=UISprite)
+            [Button] (onClick listeners=1)
+            [LayoutElement] (preferredWidth=90, preferredHeight=-1)
+          - Text (TMP)
+              RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
+              [CanvasRenderer]
+              [TextMeshProUGUI] (text="Rechercher", fontSize=24, color=D8D9DBFF)
+      - ResultArea
+          RectTransform: anchoredPos=(0.00, -36.00), sizeDelta=(-24.00, -96.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
+          [VerticalLayoutGroup] (spacing=6, controlChildWidth=True, controlChildHeight=True)
+        - ResultGroup
+            RectTransform: anchoredPos=(275.00, -133.17), sizeDelta=(550.00, 124.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+            [VerticalLayoutGroup] (spacing=6, controlChildWidth=True, controlChildHeight=True)
+            [ContentSizeFitter]
+            [LayoutElement] (preferredWidth=550, preferredHeight=-1)
+          - Result_Plate
+              RectTransform: anchoredPos=(6.51, -10.00), sizeDelta=(13.01, 20.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+              [CanvasRenderer]
+              [TextMeshProUGUI] (text="—", fontSize=13, color=D8D9DBFF)
+              [LayoutElement] (preferredWidth=-1, preferredHeight=20)
+          - Result_Owner
+              RectTransform: anchoredPos=(6.51, -36.00), sizeDelta=(13.01, 20.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+              [CanvasRenderer]
+              [TextMeshProUGUI] (text="—", fontSize=13, color=D8D9DBFF)
+              [LayoutElement] (preferredWidth=-1, preferredHeight=20)
+          - Result_Address
+              RectTransform: anchoredPos=(6.51, -62.00), sizeDelta=(13.01, 20.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+              [CanvasRenderer]
+              [TextMeshProUGUI] (text="—", fontSize=13, color=D8D9DBFF)
+              [LayoutElement] (preferredWidth=-1, preferredHeight=20)
+          - Result_Vehicle
+              RectTransform: anchoredPos=(6.51, -88.00), sizeDelta=(13.01, 20.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+              [CanvasRenderer]
+              [TextMeshProUGUI] (text="—", fontSize=13, color=D8D9DBFF)
+              [LayoutElement] (preferredWidth=-1, preferredHeight=20)
+          - Result_Notes
+              RectTransform: anchoredPos=(6.51, -114.00), sizeDelta=(13.01, 20.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+              [CanvasRenderer]
+              [TextMeshProUGUI] (text="—", fontSize=13, color=D8D9DBFF)
+              [LayoutElement] (preferredWidth=-1, preferredHeight=20)
+        - Result_NotFound
+            RectTransform: anchoredPos=(43.46, -282.17), sizeDelta=(86.92, 43.67), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+            [CanvasRenderer]
+            [TextMeshProUGUI] (text="Aucun résultat.", fontSize=13, color=C98A4BFF)
+            [LayoutElement] (preferredWidth=-1, preferredHeight=20)
+    - ImageWindowRoot
+        RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(100.00, 100.00), anchorMin=(0.50, 0.50), anchorMax=(0.50, 0.50)
+        [ImageViewerController]
+      - ImageWindowFrame [INACTIVE]
+          RectTransform: anchoredPos=(382.00, 172.00), sizeDelta=(900.00, 600.00), anchorMin=(0.50, 0.50), anchorMax=(0.50, 0.50)
+          [CanvasRenderer]
+          [Image] (color=24252764, sprite=Background)
+        - BorderTop
+            RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 2.00), anchorMin=(0.00, 1.00), anchorMax=(1.00, 1.00)
+            [CanvasRenderer]
+            [Image] (color=2F3032FF, sprite=none)
+        - BorderBottom
+            RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 2.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 0.00)
+            [CanvasRenderer]
+            [Image] (color=2F3032FF, sprite=none)
+        - BorderLeft
+            RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(2.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(0.00, 1.00)
+            [CanvasRenderer]
+            [Image] (color=2F3032FF, sprite=none)
+        - BorderRight
+            RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(2.00, 0.00), anchorMin=(1.00, 0.00), anchorMax=(1.00, 1.00)
+            [CanvasRenderer]
+            [Image] (color=2F3032FF, sprite=none)
+        - ImageTitleBar
+            RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 32.00), anchorMin=(0.00, 1.00), anchorMax=(1.00, 1.00)
+            [CanvasRenderer]
+            [Image] (color=2A2B2D64, sprite=Background)
+            [WindowDragHandler]
+          - Label_ImageTitle
+              RectTransform: anchoredPos=(10.00, 0.00), sizeDelta=(400.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(0.00, 1.00)
+              [CanvasRenderer]
+              [TextMeshProUGUI] (text="HOUSE_PHOTO.jpg — Image Viewer", fontSize=12, color=C5C6C8FF)
+          - Btn_CloseImage
+              RectTransform: anchoredPos=(-5.00, -4.00), sizeDelta=(24.00, 24.00), anchorMin=(1.00, 1.00), anchorMax=(1.00, 1.00)
+              [CanvasRenderer]
+              [Image] (color=2A2B2DFF, sprite=UISprite)
+              [Button] (onClick listeners=1)
+            - Text (TMP)
+                RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
+                [CanvasRenderer]
+                [TextMeshProUGUI] (text="×", fontSize=18, color=5A5C5FFF)
+        - ViewportMask
+            RectTransform: anchoredPos=(-4.00, -12.00), sizeDelta=(-8.00, -40.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
+            [ImageZoomPan]
+            [Mask]
+            [CanvasRenderer]
+            [Image] (color=FFFFFFFF, sprite=none)
+          - DisplayedImage
+              RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(800.00, 600.00), anchorMin=(0.50, 0.50), anchorMax=(0.50, 0.50)
+              [CanvasRenderer]
+              [Image] (color=FFFFFFFF, sprite=photo_house_01_0)
+            - Hotspot_Reflet
+                RectTransform: anchoredPos=(205.00, 162.00), sizeDelta=(50.00, 50.00), anchorMin=(0.50, 0.50), anchorMax=(0.50, 0.50)
+                [CanvasRenderer]
+                [Image] (color=FFFFFF00, sprite=none)
+                [Button] (onClick listeners=0)
+                [PhotoHotspot]
+    - FaceAnalysisWindowRoot
+        RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(100.00, 100.00), anchorMin=(0.50, 0.50), anchorMax=(0.50, 0.50)
+        [FaceAnalysisWindowUI]
+      - FaceAnalysisWindowFrame
+          RectTransform: anchoredPos=(-419.00, -256.00), sizeDelta=(600.00, 400.00), anchorMin=(0.50, 0.50), anchorMax=(0.50, 0.50)
+          [CanvasRenderer]
+          [Image] (color=24252764, sprite=Background)
+          [DatabaseWindowUI]
+        - BorderTop
+            RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 2.00), anchorMin=(0.00, 1.00), anchorMax=(1.00, 1.00)
+            [CanvasRenderer]
+            [Image] (color=2F3032FF, sprite=none)
+        - BorderBottom
+            RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 2.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 0.00)
+            [CanvasRenderer]
+            [Image] (color=2F3032FF, sprite=none)
+        - BorderLeft
+            RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(2.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(0.00, 1.00)
+            [CanvasRenderer]
+            [Image] (color=2F3032FF, sprite=none)
+        - BorderRight
+            RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(2.00, 0.00), anchorMin=(1.00, 0.00), anchorMax=(1.00, 1.00)
+            [CanvasRenderer]
+            [Image] (color=2F3032FF, sprite=none)
+        - DatabaseTitleBar
+            RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 32.00), anchorMin=(0.00, 1.00), anchorMax=(1.00, 1.00)
+            [CanvasRenderer]
+            [Image] (color=2A2B2D64, sprite=Background)
+            [WindowDragHandler]
+          - Label_DatabaseTitle
+              RectTransform: anchoredPos=(10.00, 0.00), sizeDelta=(400.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(0.00, 1.00)
+              [CanvasRenderer]
+              [TextMeshProUGUI] (text="Base de données — Recherche", fontSize=12, color=C5C6C8FF)
+          - Btn_CloseDatabase
+              RectTransform: anchoredPos=(-5.00, -5.00), sizeDelta=(24.00, 24.00), anchorMin=(1.00, 1.00), anchorMax=(1.00, 1.00)
+              [CanvasRenderer]
+              [Image] (color=2A2B2DFF, sprite=UISprite)
+              [Button] (onClick listeners=1)
+            - Text (TMP)
+                RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
+                [CanvasRenderer]
+                [TextMeshProUGUI] (text="×", fontSize=18, color=5A5C5FFF)
+        - ResultArea
+            RectTransform: anchoredPos=(0.00, -16.00), sizeDelta=(-24.00, -56.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
+          - AnalyzingPanel 
+              RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
+              [CanvasRenderer]
+            - Text (TMP)
+                RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(200.00, 50.00), anchorMin=(0.50, 0.50), anchorMax=(0.50, 0.50)
+                [CanvasRenderer]
+                [TextMeshProUGUI] (text="ANALYSE EN COURS...", fontSize=13, color=FFFFFFFF)
+          - ResultPanel [INACTIVE]
+              RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
+              [CanvasRenderer]
+              [VerticalLayoutGroup] (spacing=6, controlChildWidth=True, controlChildHeight=True)
+            - MatchPercentText
+                RectTransform: anchoredPos=(33.68, -55.33), sizeDelta=(67.35, 110.67), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+                [CanvasRenderer]
+                [TextMeshProUGUI] (text="New Text", fontSize=16, color=C98A4BFF)
+                [LayoutElement] (preferredWidth=-1, preferredHeight=20)
+            - IdentityText
+                RectTransform: anchoredPos=(27.37, -172.00), sizeDelta=(54.73, 110.67), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+                [CanvasRenderer]
+                [TextMeshProUGUI] (text="New Text", fontSize=13, color=D8D9DBFF)
+                [LayoutElement] (preferredWidth=-1, preferredHeight=20)
+            - NotesText
+                RectTransform: anchoredPos=(25.26, -288.67), sizeDelta=(50.52, 110.67), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+                [CanvasRenderer]
+                [TextMeshProUGUI] (text="New Text", fontSize=12, color=A5A7AAFF)
+                [LayoutElement] (preferredWidth=-1, preferredHeight=20)
+- EventSystem
+    [EventSystem]
+    [InputSystemUIInputModule]
+- GameManager
+    [GameManager]
+    [CaseManager]
+    [DatabaseManager]
+    [FaceDatabaseManager]

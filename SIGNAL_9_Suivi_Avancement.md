@@ -56,7 +56,7 @@ Dernière mise à jour : voir historique Git.
 
 ## En cours / prochaine étape immédiate
 
-- [ ] Créer le visualiseur d'image avec zoom (Image Viewer).
+- [ ] Créer le visualiseur d'image avec zoom (Image Viewer) — en cours.
 - [ ] Créer le système de recherche / base de données fictive.
 - [ ] Relier le tout en un premier puzzle jouable de bout en bout (objectif MVP).
 

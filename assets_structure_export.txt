@@ -1,5 +1,5 @@
 # Assets structure export
-# Generated: 19/08/2026 23:58:23
+# Generated: 20/08/2026 17:04:31
 
 Assets/
   - DefaultVolumeProfile.asset
@@ -11,8 +11,11 @@ Assets/
       - case_0017.json
       - database_plates.json
       - face_database.json
+      - graph_case_0017.json
   _Prefabs/
     - FileEntry.prefab
+    - GraphEdgePrefab.prefab
+    - GraphNodePrefab.prefab
   _Scenes/
     - Desktop.unity
   _Scripts/
@@ -20,16 +23,24 @@ Assets/
       - CaseData.cs
       - DatabaseRecord.cs
       - FaceRecord.cs
+      - GraphData.cs
+      - GraphEdgeData.cs
+      - GraphNodeData.cs
     Managers/
       - CaseManager.cs
       - DatabaseManager.cs
+      - DiscoveryManager.cs
       - FaceDatabaseManager.cs
       - GameManager.cs
+      - GraphManager.cs
     UI/
       - CaseWindowUI.cs
       - DatabaseWindowUI.cs
       - FaceAnalysisWindowUI.cs
       - FileEntryUI.cs
+      - GraphEdgeUI.cs
+      - GraphNodeUI.cs
+      - GraphWindowUI.cs
       - ImageViewerController.cs
       - ImageZoomPan.cs
       - PhotoHotspot.cs
@@ -46,6 +57,7 @@ Assets/
     - photo_house_01.jpg
     - SALON_PHOTO.png
     - VEHICLE.png
+    - white_pixel.png
   _UI/
   Editor/
     - AssetsStructureExporter.cs

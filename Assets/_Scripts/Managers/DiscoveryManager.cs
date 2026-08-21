@@ -21,6 +21,7 @@ public class DiscoveryManager : MonoBehaviour
         if (unlocked.Add(discoveryId))
         {
             Debug.Log($"[Discovery] {discoveryId} débloqué.");
+            GraphManager.Instance?.RevealFor(discoveryId);
             CheckCaseCompletion();
         }
     }

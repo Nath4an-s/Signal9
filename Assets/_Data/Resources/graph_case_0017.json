@@ -1,0 +1,13 @@
+{
+  "nodes": [
+    { "id": "case_0017", "label": "CASE #0017", "type": "Case", "x": 0, "y": 150, "revealedBy": "" },
+    { "id": "rennes", "label": "RENNES — 14 RUE DES LILAS", "type": "Place", "x": 0, "y": 0, "revealedBy": "" },
+    { "id": "julien_vasseur", "label": "JULIEN VASSEUR", "type": "Person", "x": -200, "y": -150, "revealedBy": "vehicle_owner" },
+    { "id": "m_laurent", "label": "M. LAURENT", "type": "Person", "x": 350, "y": 50, "revealedBy": "reflection_face" }
+  ],
+  "edges": [
+    { "id": "edge_case_rennes", "from": "case_0017", "to": "rennes", "correctness": "correct", "label": "lieu de l'affaire", "revealedBy": "" },
+    { "id": "edge_rennes_vasseur", "from": "rennes", "to": "julien_vasseur", "correctness": "correct", "label": "propriétaire du véhicule identifié", "revealedBy": "vehicle_owner" },
+    { "id": "edge_case_laurent", "from": "case_0017", "to": "m_laurent", "correctness": "ambiguous", "label": "présent sur la photo du salon", "revealedBy": "reflection_face" }
+  ]
+}

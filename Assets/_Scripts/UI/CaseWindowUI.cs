@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -79,7 +80,10 @@ public class CaseWindowUI : MonoBehaviour
         }
     }
 
-    Sprite GetSpriteForFile(string fileName)
+    // Rendue publique (était privée) : ImageViewerController en a besoin pour résoudre le
+    // sprite d'un fichier ouvert autrement que par un clic sur FileEntryUI (sélecteur du
+    // header, ouverture par défaut depuis Btn_AnalysePhoto).
+    public Sprite GetSpriteForFile(string fileName)
     {
         foreach (ImageMapping mapping in imageMappings)
         {
@@ -89,6 +93,28 @@ public class CaseWindowUI : MonoBehaviour
             }
         }
         return null;
+    }
+
+    // Fichiers image du dossier courant, dans l'ordre de attachedFiles — alimente le
+    // sélecteur du header de l'Image Viewer.
+    public string[] GetImageFileNames()
+    {
+        if (currentCaseData == null) return new string[0];
+
+        var result = new List<string>();
+        foreach (string fileName in currentCaseData.attachedFiles)
+        {
+            if (fileName.EndsWith(".jpg") || fileName.EndsWith(".png"))
+                result.Add(fileName);
+        }
+        return result.ToArray();
+    }
+
+    // Utilisée par Btn_AnalysePhoto (Sidebar) pour ouvrir une image par défaut.
+    public string GetFirstImageFileName()
+    {
+        string[] images = GetImageFileNames();
+        return images.Length > 0 ? images[0] : null;
     }
 
     // Appelé par DiscoveryManager une fois toutes les requiredDiscoveries débloquées.

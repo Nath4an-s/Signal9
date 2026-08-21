@@ -1,5 +1,5 @@
 # Scene export: Desktop
-# Generated: 19/08/2026 23:58:26
+# Generated: 20/08/2026 22:34:12
 
 - Main Camera
     [Camera]
@@ -132,7 +132,7 @@
         RectTransform: anchoredPos=(88.00, -969.67), sizeDelta=(160.00, 30.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
         [CanvasRenderer]
         [Image] (color=141516FF, sprite=UISprite)
-        [Button] (onClick listeners=0)
+        [Button] (onClick listeners=1)
         [LayoutElement] (preferredWidth=-1, preferredHeight=32)
         [HorizontalLayoutGroup] (spacing=8, controlChildWidth=True, controlChildHeight=True)
       - Icon
@@ -153,7 +153,7 @@
     - CaseWindow [INACTIVE]
         RectTransform: anchoredPos=(483.00, -138.00), sizeDelta=(500.00, 220.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
         [CanvasRenderer]
-        [Image] (color=24252764, sprite=Background)
+        [Image] (color=242527FF, sprite=Background)
         [CaseWindowUI]
       - BorderTop
           RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 2.00), anchorMin=(0.00, 1.00), anchorMax=(1.00, 1.00)
@@ -240,7 +240,7 @@
     - DatabaseWindowFrame [INACTIVE]
         RectTransform: anchoredPos=(-419.00, -256.00), sizeDelta=(600.00, 400.00), anchorMin=(0.50, 0.50), anchorMax=(0.50, 0.50)
         [CanvasRenderer]
-        [Image] (color=24252764, sprite=Background)
+        [Image] (color=242527FF, sprite=Background)
         [DatabaseWindowUI]
       - BorderTop
           RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 2.00), anchorMin=(0.00, 1.00), anchorMax=(1.00, 1.00)
@@ -350,7 +350,7 @@
       - ImageWindowFrame [INACTIVE]
           RectTransform: anchoredPos=(382.00, 172.00), sizeDelta=(900.00, 600.00), anchorMin=(0.50, 0.50), anchorMax=(0.50, 0.50)
           [CanvasRenderer]
-          [Image] (color=24252764, sprite=Background)
+          [Image] (color=242527FF, sprite=Background)
         - BorderTop
             RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 2.00), anchorMin=(0.00, 1.00), anchorMax=(1.00, 1.00)
             [CanvasRenderer]
@@ -399,16 +399,15 @@
                 RectTransform: anchoredPos=(205.00, 162.00), sizeDelta=(50.00, 50.00), anchorMin=(0.50, 0.50), anchorMax=(0.50, 0.50)
                 [CanvasRenderer]
                 [Image] (color=FFFFFF00, sprite=none)
-                [Button] (onClick listeners=0)
+                [Button] (onClick listeners=1)
                 [PhotoHotspot]
     - FaceAnalysisWindowRoot
         RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(100.00, 100.00), anchorMin=(0.50, 0.50), anchorMax=(0.50, 0.50)
         [FaceAnalysisWindowUI]
-      - FaceAnalysisWindowFrame
+      - FaceAnalysisWindowFrame [INACTIVE]
           RectTransform: anchoredPos=(-419.00, -256.00), sizeDelta=(600.00, 400.00), anchorMin=(0.50, 0.50), anchorMax=(0.50, 0.50)
           [CanvasRenderer]
-          [Image] (color=24252764, sprite=Background)
-          [DatabaseWindowUI]
+          [Image] (color=242527FF, sprite=Background)
         - BorderTop
             RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 2.00), anchorMin=(0.00, 1.00), anchorMax=(1.00, 1.00)
             [CanvasRenderer]
@@ -448,10 +447,43 @@
           - AnalyzingPanel 
               RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
               [CanvasRenderer]
-            - Text (TMP)
-                RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(200.00, 50.00), anchorMin=(0.50, 0.50), anchorMax=(0.50, 0.50)
+              [VerticalLayoutGroup] (spacing=6, controlChildWidth=True, controlChildHeight=False)
+            - StatusText 
+                RectTransform: anchoredPos=(288.00, -49.00), sizeDelta=(576.00, 50.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
                 [CanvasRenderer]
                 [TextMeshProUGUI] (text="ANALYSE EN COURS...", fontSize=13, color=FFFFFFFF)
+            - ScanBarTrack
+                RectTransform: anchoredPos=(288.00, -212.00), sizeDelta=(576.00, 6.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+                [CanvasRenderer]
+                [Image] (color=141516FF, sprite=none)
+              - BorderTop
+                  RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 1.00), anchorMin=(0.00, 1.00), anchorMax=(1.00, 1.00)
+                  [CanvasRenderer]
+                  [Image] (color=2A2B2DFF, sprite=none)
+              - BorderBottom
+                  RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 1.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 0.00)
+                  [CanvasRenderer]
+                  [Image] (color=2A2B2DFF, sprite=none)
+              - BorderRight
+                  RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(1.00, 0.00), anchorMin=(1.00, 0.00), anchorMax=(1.00, 1.00)
+                  [CanvasRenderer]
+                  [Image] (color=2A2B2DFF, sprite=none)
+              - BorderLeft
+                  RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(1.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(0.00, 1.00)
+                  [CanvasRenderer]
+                  [Image] (color=2A2B2DFF, sprite=none)
+              - ScanBarFill 
+                  RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
+                  [CanvasRenderer]
+                  [Image] (color=4A7FB5FF, sprite=white_pixel_0)
+              - ScanBarHead 
+                  RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(2.00, 10.00), anchorMin=(0.00, 0.50), anchorMax=(0.00, 0.50)
+                  [CanvasRenderer]
+                  [Image] (color=C5C6C8FF, sprite=none)
+              - PercentText
+                  RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(576.00, 50.00), anchorMin=(0.00, 0.50), anchorMax=(0.00, 0.50)
+                  [CanvasRenderer]
+                  [TextMeshProUGUI] (text="00%", fontSize=11, color=5A5C5FFF)
           - ResultPanel [INACTIVE]
               RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
               [CanvasRenderer]
@@ -471,6 +503,90 @@
                 [CanvasRenderer]
                 [TextMeshProUGUI] (text="New Text", fontSize=12, color=A5A7AAFF)
                 [LayoutElement] (preferredWidth=-1, preferredHeight=20)
+    - GraphWindowRoot
+        RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(100.00, 100.00), anchorMin=(0.50, 0.50), anchorMax=(0.50, 0.50)
+        [GraphWindowUI]
+      - GraphWindowFrame
+          RectTransform: anchoredPos=(-317.00, -176.00), sizeDelta=(800.00, 600.00), anchorMin=(0.50, 0.50), anchorMax=(0.50, 0.50)
+          [CanvasRenderer]
+          [Image] (color=242527FF, sprite=Background)
+        - BorderTop
+            RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 2.00), anchorMin=(0.00, 1.00), anchorMax=(1.00, 1.00)
+            [CanvasRenderer]
+            [Image] (color=2F3032FF, sprite=none)
+        - BorderBottom
+            RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 2.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 0.00)
+            [CanvasRenderer]
+            [Image] (color=2F3032FF, sprite=none)
+        - BorderLeft
+            RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(2.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(0.00, 1.00)
+            [CanvasRenderer]
+            [Image] (color=2F3032FF, sprite=none)
+        - BorderRight
+            RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(2.00, 0.00), anchorMin=(1.00, 0.00), anchorMax=(1.00, 1.00)
+            [CanvasRenderer]
+            [Image] (color=2F3032FF, sprite=none)
+        - GraphTitleBar
+            RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 32.00), anchorMin=(0.00, 1.00), anchorMax=(1.00, 1.00)
+            [CanvasRenderer]
+            [Image] (color=2A2B2D64, sprite=Background)
+            [WindowDragHandler]
+          - Label_GraphTitle
+              RectTransform: anchoredPos=(10.00, 0.00), sizeDelta=(400.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(0.00, 1.00)
+              [CanvasRenderer]
+              [TextMeshProUGUI] (text="Graphe des connexions", fontSize=12, color=C5C6C8FF)
+          - Btn_CloseGraph
+              RectTransform: anchoredPos=(-5.00, -5.00), sizeDelta=(24.00, 24.00), anchorMin=(1.00, 1.00), anchorMax=(1.00, 1.00)
+              [CanvasRenderer]
+              [Image] (color=2A2B2DFF, sprite=UISprite)
+              [Button] (onClick listeners=1)
+            - Text (TMP)
+                RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
+                [CanvasRenderer]
+                [TextMeshProUGUI] (text="×", fontSize=18, color=5A5C5FFF)
+        - GraphViewport
+            RectTransform: anchoredPos=(0.00, -16.00), sizeDelta=(-32.00, -64.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
+            [RectMask2D]
+            [CanvasRenderer]
+            [Image] (color=00000000, sprite=none)
+            [GraphViewController]
+          - GraphContent
+              RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 0.00), anchorMin=(0.00, 0.00), anchorMax=(1.00, 1.00)
+            - EdgesLayer
+                RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(0.00, 259.00), anchorMin=(0.50, 0.50), anchorMax=(0.50, 0.50)
+            - NodesLayer
+                RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(768.00, 536.00), anchorMin=(0.50, 0.50), anchorMax=(0.50, 0.50)
+        - Legend
+            RectTransform: anchoredPos=(0.00, 0.00), sizeDelta=(150.00, 188.00), anchorMin=(0.00, 0.00), anchorMax=(0.00, 0.00)
+            [CanvasRenderer]
+            [Image] (color=141516E6, sprite=Background)
+            [VerticalLayoutGroup] (spacing=4, controlChildWidth=True, controlChildHeight=False)
+            [ContentSizeFitter]
+            [GraphLegendUI]
+          - BorderTop
+              RectTransform: anchoredPos=(75.00, -8.00), sizeDelta=(134.00, 1.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+              [CanvasRenderer]
+              [Image] (color=2A2B2DFF, sprite=none)
+          - BorderBottom
+              RectTransform: anchoredPos=(75.00, -14.00), sizeDelta=(134.00, 1.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+              [CanvasRenderer]
+              [Image] (color=2A2B2DFF, sprite=none)
+          - BorderRight
+              RectTransform: anchoredPos=(142.00, -18.00), sizeDelta=(134.00, 0.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+              [CanvasRenderer]
+              [Image] (color=2A2B2DFF, sprite=none)
+          - BorderLeft
+              RectTransform: anchoredPos=(8.00, -22.00), sizeDelta=(134.00, 0.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+              [CanvasRenderer]
+              [Image] (color=2A2B2DFF, sprite=none)
+          - Label_LegendTitle
+              RectTransform: anchoredPos=(75.00, -51.00), sizeDelta=(134.00, 50.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+              [CanvasRenderer]
+              [TextMeshProUGUI] (text="LÉGENDE", fontSize=9, color=7C7E81FF)
+              [LayoutElement] (preferredWidth=-1, preferredHeight=14)
+          - RowsContainer
+              RectTransform: anchoredPos=(75.00, -130.00), sizeDelta=(134.00, 100.00), anchorMin=(0.00, 1.00), anchorMax=(0.00, 1.00)
+              [VerticalLayoutGroup] (spacing=3, controlChildWidth=True, controlChildHeight=False)
 - EventSystem
     [EventSystem]
     [InputSystemUIInputModule]
@@ -479,3 +595,5 @@
     [CaseManager]
     [DatabaseManager]
     [FaceDatabaseManager]
+    [DiscoveryManager]
+    [GraphManager]

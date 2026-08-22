@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -25,24 +24,14 @@ public class GraphWindowUI : MonoBehaviour
 
     private readonly Dictionary<string, GraphNodeUI> nodesById = new Dictionary<string, GraphNodeUI>();
 
-    // Empêche RevealEdge de ramener la fenêtre au premier plan pendant la révélation initiale
-    // (GraphManager.Start() → RevealInitialNodesAndEdges), qui se produit dès le lancement du
-    // jeu avant toute action du joueur. Se désactive automatiquement une frame plus tard — donc
-    // avant la moindre découverte réelle en cours de partie, qui elle doit bien focus le graphe.
-    private bool suppressAutoFocus = true;
-
     void Awake()
     {
         GraphManager.Instance.RegisterWindowUI(this);
-        StartCoroutine(EnableAutoFocusNextFrame());
     }
 
-    private IEnumerator EnableAutoFocusNextFrame()
-    {
-        yield return null;
-        suppressAutoFocus = false;
-    }
-
+    // Le TIMING de l'ouverture (délai avant d'ouvrir, avant d'animer les révélations) est décidé
+    // par GraphManager, pas ici — voir GraphManager.RevealFor(). Ce script ne fait qu'exécuter
+    // ce qu'on lui demande, sans logique de délai propre.
     public void Open()
     {
         windowFrame.SetActive(true);
@@ -101,14 +90,5 @@ public class GraphWindowUI : MonoBehaviour
 
         GraphEdgeUI instance = Instantiate(edgePrefab, edgesLayer);
         instance.Setup(fromNode.RectTransform, toNode.RectTransform, data.correctness, data.label, animate);
-
-        // Un nouveau lien vient d'apparaître suite à une découverte du joueur : on ramène le
-        // graphe au premier plan pour qu'il voie la connexion se dessiner, plutôt que de la
-        // découvrir plus tard en rouvrant l'onglet manuellement. Pas d'effet pendant la
-        // révélation initiale au lancement (cf. suppressAutoFocus).
-        if (!suppressAutoFocus)
-        {
-            Open();
-        }
     }
 }

@@ -30,6 +30,17 @@ public class CaseWindowUI : MonoBehaviour
     [Header("Image mapping (temporary manual mapping)")]
     public ImageMapping[] imageMappings;
 
+    [System.Serializable]
+    public class TextMapping
+    {
+        public string fileName;
+        [TextArea(4, 20)]
+        public string content;
+    }
+
+    [Header("Text mapping (rapports, documents — POLICE_REPORT.pdf, etc.)")]
+    public TextMapping[] textMappings;
+
     private CaseData currentCaseData;
 
     void Awake()
@@ -90,6 +101,19 @@ public class CaseWindowUI : MonoBehaviour
             if (mapping.fileName == fileName)
             {
                 return mapping.sprite;
+            }
+        }
+        return null;
+    }
+
+    // Symétrique de GetSpriteForFile, pour DocumentViewerController (POLICE_REPORT.pdf, etc.).
+    public string GetTextForFile(string fileName)
+    {
+        foreach (TextMapping mapping in textMappings)
+        {
+            if (mapping.fileName == fileName)
+            {
+                return mapping.content;
             }
         }
         return null;

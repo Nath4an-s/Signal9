@@ -26,9 +26,14 @@ public class FileEntryUI : MonoBehaviour
         {
             ImageViewerController.Instance.Open(fileName, associatedImage);
         }
+        else if (fileName.EndsWith(".pdf") || fileName.EndsWith(".txt"))
+        {
+            string content = CaseWindowUI.Instance != null ? CaseWindowUI.Instance.GetTextForFile(fileName) : null;
+            DocumentViewerController.Instance.Open(fileName, content);
+        }
         else
         {
-            Debug.Log($"Ouverture de {fileName} pas encore implémentée (vidéo/audio/pdf).");
+            Debug.Log($"Ouverture de {fileName} pas encore implémentée (vidéo/audio).");
         }
     }
 }

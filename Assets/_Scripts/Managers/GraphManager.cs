@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 // À attacher sur le même GameObject que GameManager / CaseManager / DatabaseManager / FaceDatabaseManager / DiscoveryManager.
@@ -78,22 +80,45 @@ public class GraphManager : MonoBehaviour
         }
     }
 
-    // Point d'entrée appelé par DiscoveryManager.Unlock().
+    [Header("Délais (déclenchés par une découverte en cours de partie — pas au lancement)")]
+    [Tooltip("Temps d'attente après une découverte (Unlock) avant d'ouvrir/focus la fenêtre du graphe.")]
+    public float delayBeforeOpen = 2f;
+    [Tooltip("Temps d'attente supplémentaire, fenêtre déjà ouverte, avant de lancer l'animation des nouveaux nœuds/liens.")]
+    public float delayBeforeReveal = 1f;
+
+    // Point d'entrée appelé par DiscoveryManager.Unlock(). Différé : la fenêtre du graphe ne
+    // doit pas s'ouvrir instantanément quand le joueur trouve une plaque ou réussit une analyse
+    // faciale — on lui laisse le temps de terminer ce qu'il regardait avant de basculer son
+    // attention vers le graphe qui se dessine.
     public void RevealFor(string discoveryId)
     {
         if (Data == null) return;
 
-        foreach (var node in Data.nodes)
-        {
-            if (node.revealedBy == discoveryId)
-                RevealNode(node);
-        }
+        List<GraphNodeData> nodesToReveal = Data.nodes.Where(n => n.revealedBy == discoveryId).ToList();
+        List<GraphEdgeData> edgesToReveal = Data.edges.Where(e => e.revealedBy == discoveryId).ToList();
 
-        foreach (var edge in Data.edges)
-        {
-            if (edge.revealedBy == discoveryId)
-                TryRevealEdge(edge);
-        }
+        if (nodesToReveal.Count == 0 && edgesToReveal.Count == 0) return;
+
+        StartCoroutine(RevealForDelayed(nodesToReveal, edgesToReveal));
+    }
+
+    private IEnumerator RevealForDelayed(List<GraphNodeData> nodes, List<GraphEdgeData> edges)
+    {
+        yield return new WaitForSeconds(delayBeforeOpen);
+
+        // Ouvre/focus la fenêtre AVANT que les nouveaux éléments existent : le joueur voit
+        // l'état actuel du graphe d'abord, puis les nouveautés apparaître juste après.
+        windowUI?.Open();
+
+        yield return new WaitForSeconds(delayBeforeReveal);
+
+        foreach (GraphNodeData node in nodes)
+            RevealNode(node);
+
+        // Les liens dépendent de leurs deux extrémités déjà révélées — nodes puis edges, dans
+        // cet ordre, exactement comme RevealInitialNodesAndEdges().
+        foreach (GraphEdgeData edge in edges)
+            TryRevealEdge(edge);
     }
 
     private void RevealNode(GraphNodeData node)

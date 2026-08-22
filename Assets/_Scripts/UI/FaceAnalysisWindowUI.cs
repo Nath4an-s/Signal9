@@ -45,7 +45,14 @@ public class FaceAnalysisWindowUI : MonoBehaviour
     public void Open(string faceId)
     {
         windowRoot.SetActive(true);
-        windowRoot.transform.SetAsLastSibling();
+
+        // Ce script est posé sur FaceAnalysisWindowRoot, le vrai frère de CaseWindow/
+        // DatabaseWindowFrame sous WindowsLayer. windowRoot (= FaceAnalysisWindowFrame) est
+        // fils unique de ce Root : le réordonner n'a aucun effet, il n'a pas de frère à
+        // dépasser. Il faut réordonner transform (= FaceAnalysisWindowRoot) — même piège
+        // déjà rencontré et corrigé sur GraphWindowUI et ImageViewerController.
+        transform.SetAsLastSibling();
+
         analyzingPanel.SetActive(true);
         resultPanel.SetActive(false);
 
